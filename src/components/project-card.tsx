@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import React from "react"
 import { jsx } from "theme-ui"
+import Form from './form'
 
 type ProjectCardProps = {
   link: string
@@ -23,7 +24,9 @@ const ProjectCard = ({ children, bg }: ProjectCardProps) => (
       background: bg || `none`,
     }}
   >
-    <div sx={{ opacity: 0.75, textShadow: `0 2px 10px rgba(0, 0, 0, 0.3)` }}>{children}</div>
+    <div sx={{ opacity: 0.75, textShadow: `0 2px 10px rgba(0, 0, 0, 0.3)` }}>
+      <Form />
+    </div>
     <div
       sx={{
         textTransform: `uppercase`,
