@@ -7,7 +7,7 @@ module.exports = {
     siteTitle: `Pozivnica`,
     siteTitleAlt: `Pozivnica | Uros&Maja`,
     siteHeadline: `Pozivnica | Uros&Maja`,
-    siteUrl: `https://uros&maja.vencanje.netlify.com`,
+    siteUrl: `https://uros-maja-vencanje.netlify.com`,
     siteDescription: `Pozivnica na vencanje Urosa i Maje`,
     siteLanguage: `rs`,
     siteImage: `src/assets/banner.jpg`
