@@ -270,7 +270,7 @@ const Form = () => {
   return (
     <FormContainer
       name="potvrda_dolaska"
-      method="post"
+      method="POST"
       action="#"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
