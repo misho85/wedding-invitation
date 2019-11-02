@@ -245,10 +245,6 @@ class Form extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleCheck = () => {
-    this.setState(state => ({ newsLetter: !state.newsLetter }));
-  };
-
   handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
@@ -272,7 +268,7 @@ class Form extends React.Component {
 
     return (
       <FormContainer
-        name="Contact-Form"
+        name="potvrda_dolaska"
         method="post"
         action="#"
         data-netlify="true"
@@ -322,12 +318,12 @@ class Form extends React.Component {
             />
           </li>
           <li>
-            <label htmlFor="phone" />
+            <label htmlFor="number" />
             <input
               required
-              name="phone"
-              id="phone"
-              type="text"
+              name="number"
+              id="number"
+              type="number"
               placeholder="Broj gostiju"
               onChange={this.handleChange}
             />
@@ -351,7 +347,7 @@ class Form extends React.Component {
           disabled={formVerified}
           type="submit"
           id="submit"
-          value={!formVerified ? 'Send Message' : 'Fill Form to Send'}
+          value={!formVerified ? 'Pošalji' : 'Potvrdite prisustvo'}
         />
       </FormContainer>
     );
