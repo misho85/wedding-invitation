@@ -288,7 +288,9 @@ const Form = () => {
       </p>
       <FormFields>
         <li>
-          <label htmlFor="firstName"></label>
+          <label hidden htmlFor="firstName">
+            Ime
+          </label>
           <input
             required
             name="firstName"
@@ -299,7 +301,9 @@ const Form = () => {
           />
         </li>
         <li>
-          <label htmlFor="lastName"></label>
+          <label hidden htmlFor="lastName">
+            Prezime
+          </label>
           <input
             required
             name="lastName"
@@ -310,7 +314,9 @@ const Form = () => {
           />
         </li>
         <li>
-          <label htmlFor="email"></label>
+          <label hidden htmlFor="email">
+            Email
+          </label>
           <input
             required
             name="email"
@@ -321,7 +327,9 @@ const Form = () => {
           />
         </li>
         <li>
-          <label htmlFor="number"></label>
+          <label hidden htmlFor="number">
+            Broj gostiju
+          </label>
           <input
             required
             name="number"
@@ -337,7 +345,9 @@ const Form = () => {
       </FormFields>
       <MessageField>
         <li>
-          <label htmlFor="message"></label>
+          <label hidden htmlFor="message">
+            Dodatna poruka
+          </label>
           <textarea
             required
             name="message"
