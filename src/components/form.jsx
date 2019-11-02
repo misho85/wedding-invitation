@@ -264,7 +264,7 @@ class Form extends React.Component {
     const { firstName, lastName, email, phone, message } = this.state;
 
     const formVerified =
-      firstName === '' || lastName === '' || email === '' || phone === '' || message === '';
+      firstName === '' || lastName === '' || email === '' || phone === null || message === '';
 
     return (
       <FormContainer
