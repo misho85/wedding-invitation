@@ -8,7 +8,8 @@ export default {
     ...tailwind.colors,
     primary: tailwind.colors.orange[4],
     secondary: tailwind.colors.indigo[6],
-    text: tailwind.colors.gray[3],
+    // text: tailwind.colors.gray[3],
+    text: tailwind.colors.white,
     heading: tailwind.colors.white,
     background: `#141821`,
     divider: tailwind.colors.gray[8],
@@ -108,7 +109,8 @@ export default {
       p: {
         fontSize: [2, 3],
         fontWeight: `medium`,
-        color: `heading`
+        color: `heading`,
+        textShadow: `rgba(255, 255, 255, 0.15) 0px 5px 35px`
       }
     },
     h1: {

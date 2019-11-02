@@ -19,6 +19,8 @@ module.exports = {
         path: `${__dirname}/src/sections`
       }
     },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-mdx`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
