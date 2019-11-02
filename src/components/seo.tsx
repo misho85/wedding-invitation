@@ -26,9 +26,7 @@ const SEO = ({ title, description, pathname, image, children }: Props) => {
     siteTitleAlt: defaultTitle,
     siteUrl,
     siteDescription: defaultDescription,
-    siteLanguage,
     siteImage: defaultImage,
-    author,
   } = site
 
   const seo = {
@@ -37,9 +35,12 @@ const SEO = ({ title, description, pathname, image, children }: Props) => {
     url: `${siteUrl}${pathname || ``}`,
     image: `${siteUrl}${image || defaultImage}`,
   }
+
+  console.log('image', image)
+  console.log('site', site)
   return (
     <Helmet title={title} defaultTitle={defaultTitle} titleTemplate={`%s | ${siteTitle}`}>
-      <html lang={siteLanguage} />
+      <html lang='rs' />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       <meta property="og:title" content={seo.title} />

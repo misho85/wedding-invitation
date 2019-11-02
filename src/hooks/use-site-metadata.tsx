@@ -15,10 +15,8 @@ const useSiteMetadata = () => {
         siteMetadata {
           siteTitle
           siteTitleAlt
-          siteHeadline
           siteUrl
           siteDescription
-          siteLanguage
           siteImage
         }
       }

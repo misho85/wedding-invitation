@@ -1,12 +1,15 @@
+const website = require('./config/website');
+
+const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix;
+
 module.exports = {
+  pathPrefix: website.pathPrefix,
   siteMetadata: {
-    siteTitle: `Pozivnica`,
-    siteTitleAlt: `Pozivnica | Uros&Maja`,
-    siteHeadline: `Pozivnica | Uros&Maja`,
-    siteUrl: `https://uros-maja-vencanje.netlify.com`,
-    siteDescription: `Pozivnica na vencanje Urosa i Maje`,
-    siteLanguage: `rs`,
-    siteImage: `src/assets/banner.jpg`
+    siteTitle: website.siteTitle,
+    siteTitleAlt: website.siteTitleAlt,
+    siteUrl: website.siteUrl + pathPrefix,
+    siteDescription: website.siteDescription,
+    siteImage: website.siteLogo
   },
   plugins: [
     {
@@ -24,14 +27,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Pozivnica | Uros&Maja`,
-        short_name: `Pozivnica`,
-        description: `Pozivnica na vencanje Urosa i Maje`,
+        name: website.siteTitle,
+        short_name: website.siteShortName,
+        description: website.siteDescription,
         start_url: `/`,
-        background_color: `#141821`,
-        theme_color: `#f6ad55`,
-        display: `standalone`,
-        icon: `src/assets/favicon.svg`
+        background_color: website.manifestBackgroundColor,
+        theme_color: website.manifestThemeColor,
+        display: website.manifestDisplay,
+        icon: website.manifestIcon
       }
     },
     `gatsby-plugin-netlify`
