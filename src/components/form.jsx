@@ -271,6 +271,7 @@ class Form extends React.Component {
         name="potvrda_dolaska"
         method="post"
         action="#"
+        netlify
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         onSubmit={this.handleSubmit}
