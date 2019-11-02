@@ -237,11 +237,13 @@ const Form = () => {
     firstName: '',
     lastName: '',
     email: '',
-    phone: '',
+    number: 0,
     message: ''
   };
 
   const [state, setState] = useState(initialState);
+
+  console.log('state', state);
 
   const handleChange = e => {
     setState({ ...state, [e.target.name]: e.target.value });
@@ -262,10 +264,10 @@ const Form = () => {
       .catch(error => alert(error));
   };
 
-  const { firstName, lastName, email, phone, message } = this.state;
+  const { firstName, lastName, email, number, message } = state;
 
   const formVerified =
-    firstName === '' || lastName === '' || email === '' || phone === null || message === '';
+    firstName === '' || lastName === '' || email === '' || number === null || message === '';
 
   return (
     <FormContainer
@@ -325,6 +327,9 @@ const Form = () => {
             name="number"
             id="number"
             type="number"
+            value={state.number}
+            min="0"
+            max="10"
             placeholder="Broj gostiju"
             onChange={handleChange}
           />
