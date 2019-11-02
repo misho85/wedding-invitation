@@ -288,7 +288,7 @@ const Form = () => {
       </p>
       <FormFields>
         <li>
-          <label htmlFor="firstName" />
+          <label htmlFor="firstName"></label>
           <input
             required
             name="firstName"
@@ -299,7 +299,7 @@ const Form = () => {
           />
         </li>
         <li>
-          <label htmlFor="lastName" />
+          <label htmlFor="lastName"></label>
           <input
             required
             name="lastName"
@@ -310,7 +310,7 @@ const Form = () => {
           />
         </li>
         <li>
-          <label htmlFor="email" />
+          <label htmlFor="email"></label>
           <input
             required
             name="email"
@@ -321,7 +321,7 @@ const Form = () => {
           />
         </li>
         <li>
-          <label htmlFor="number" />
+          <label htmlFor="number"></label>
           <input
             required
             name="number"
@@ -337,7 +337,7 @@ const Form = () => {
       </FormFields>
       <MessageField>
         <li>
-          <label htmlFor="message" />
+          <label htmlFor="message"></label>
           <textarea
             required
             name="message"
