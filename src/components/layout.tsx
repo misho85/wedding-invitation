@@ -6,6 +6,7 @@ import { css, Styled, jsx } from "theme-ui"
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from "gatsby-image"
 import SEO from "./seo"
+import pozadina from '../../static/pozadina.jpg'
 
 type LayoutProps = { children?: React.ReactNode; className?: string }
 

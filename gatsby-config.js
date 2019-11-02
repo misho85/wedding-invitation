@@ -19,6 +19,13 @@ module.exports = {
         path: `${__dirname}/src/sections`
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,
+        path: `${__dirname}/content`
+      }
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-mdx`,
