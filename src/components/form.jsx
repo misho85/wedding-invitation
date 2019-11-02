@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-alert */
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
 const FormContainer = styled.form``;
@@ -226,14 +226,14 @@ const Submit = styled.input`
   transform: translateX(-50%);
 `;
 
-function encode(data) {
+const encode = data => {
   return Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
     .join('&');
-}
+};
 
-class Form extends React.Component {
-  state = {
+const Form = () => {
+  const initialState = {
     firstName: '',
     lastName: '',
     email: '',
@@ -241,11 +241,13 @@ class Form extends React.Component {
     message: ''
   };
 
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  const [state, setState] = useState(initialState);
+
+  const handleChange = e => {
+    setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
     fetch('/', {
@@ -253,105 +255,103 @@ class Form extends React.Component {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
-        ...this.state
+        ...state
       })
     })
       .then(() => alert(`Your message has been sent and we'll reply shortly`))
       .catch(error => alert(error));
   };
 
-  render() {
-    const { firstName, lastName, email, phone, message } = this.state;
+  const { firstName, lastName, email, phone, message } = this.state;
 
-    const formVerified =
-      firstName === '' || lastName === '' || email === '' || phone === null || message === '';
+  const formVerified =
+    firstName === '' || lastName === '' || email === '' || phone === null || message === '';
 
-    return (
-      <FormContainer
-        name="potvrda_dolaska"
-        method="post"
-        action="#"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit={this.handleSubmit}
-      >
-        {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-        <input type="hidden" name="form-name" value="potvrda_dolaska" />
-        <p hidden>
-          <label>
-            Don’t fill this out:{''}
-            <input name="bot-field" onChange={this.handleChange} />
-          </label>
-        </p>
-        <FormFields>
-          <li>
-            <label htmlFor="firstName" />
-            <input
-              required
-              name="firstName"
-              id="firstName"
-              type="text"
-              placeholder="Ime"
-              onChange={this.handleChange}
-            />
-          </li>
-          <li>
-            <label htmlFor="lastName" />
-            <input
-              required
-              name="lastName"
-              id="lastName"
-              type="text"
-              placeholder="Prezime"
-              onChange={this.handleChange}
-            />
-          </li>
-          <li>
-            <label htmlFor="email" />
-            <input
-              required
-              name="email"
-              id="email"
-              type="email"
-              placeholder="Email"
-              onChange={this.handleChange}
-            />
-          </li>
-          <li>
-            <label htmlFor="number" />
-            <input
-              required
-              name="number"
-              id="number"
-              type="number"
-              placeholder="Broj gostiju"
-              onChange={this.handleChange}
-            />
-          </li>
-        </FormFields>
-        <MessageField>
-          <li>
-            <label htmlFor="message" />
-            <textarea
-              required
-              name="message"
-              id="message"
-              placeholder="Dodatna poruka"
-              rows={5}
-              cols={50}
-              onChange={this.handleChange}
-            />
-          </li>
-        </MessageField>
-        <Submit
-          disabled={formVerified}
-          type="submit"
-          id="submit"
-          value={!formVerified ? 'Pošalji' : 'Potvrdite prisustvo'}
-        />
-      </FormContainer>
-    );
-  }
-}
+  return (
+    <FormContainer
+      name="potvrda_dolaska"
+      method="post"
+      action="#"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      onSubmit={handleSubmit}
+    >
+      {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+      <input type="hidden" name="form-name" value="potvrda_dolaska" />
+      <p hidden>
+        <label>
+          Don’t fill this out:{''}
+          <input name="bot-field" onChange={handleChange} />
+        </label>
+      </p>
+      <FormFields>
+        <li>
+          <label htmlFor="firstName" />
+          <input
+            required
+            name="firstName"
+            id="firstName"
+            type="text"
+            placeholder="Ime"
+            onChange={handleChange}
+          />
+        </li>
+        <li>
+          <label htmlFor="lastName" />
+          <input
+            required
+            name="lastName"
+            id="lastName"
+            type="text"
+            placeholder="Prezime"
+            onChange={handleChange}
+          />
+        </li>
+        <li>
+          <label htmlFor="email" />
+          <input
+            required
+            name="email"
+            id="email"
+            type="email"
+            placeholder="Email"
+            onChange={handleChange}
+          />
+        </li>
+        <li>
+          <label htmlFor="number" />
+          <input
+            required
+            name="number"
+            id="number"
+            type="number"
+            placeholder="Broj gostiju"
+            onChange={handleChange}
+          />
+        </li>
+      </FormFields>
+      <MessageField>
+        <li>
+          <label htmlFor="message" />
+          <textarea
+            required
+            name="message"
+            id="message"
+            placeholder="Dodatna poruka"
+            rows={5}
+            cols={50}
+            onChange={handleChange}
+          />
+        </li>
+      </MessageField>
+      <Submit
+        disabled={formVerified}
+        type="submit"
+        id="submit"
+        value={!formVerified ? 'Pošalji' : 'Potvrdite prisustvo'}
+      />
+    </FormContainer>
+  );
+};
 
 export default Form;
