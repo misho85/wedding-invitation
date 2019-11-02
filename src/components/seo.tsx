@@ -36,8 +36,6 @@ const SEO = ({ title, description, pathname, image, children }: Props) => {
     image: `${siteUrl}${image || defaultImage}`,
   }
 
-  console.log('image', image)
-  console.log('site', site)
   return (
     <Helmet title={title} defaultTitle={defaultTitle} titleTemplate={`%s | ${siteTitle}`}>
       <html lang='rs' />
