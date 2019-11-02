@@ -1,7 +1,3 @@
-require(`dotenv`).config({
-  path: `.env`
-});
-
 module.exports = {
   siteMetadata: {
     siteTitle: `Pozivnica`,
@@ -25,12 +21,6 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-theme-ui`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_ID
-      }
-    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
